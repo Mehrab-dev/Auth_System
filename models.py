@@ -1,4 +1,5 @@
 import re
+import bcrypt
 
 
 class User :
@@ -10,15 +11,13 @@ class User :
             raise ValueError("The phone number is invalid")
         else :
             self.phone = phone
-        match = re.fullmatch(r"\d^{8}",password)
-        if not match :
-            raise ValueError("The password is invalid")
-        else :
-            self.password = password
+        self.password = bcrypt.hashpw(password.encode(),bcrypt.gensalt())
         if email is not None :
             match = re.fullmatch(r"^[a-zA-Z0-9._]+@gmail\.com$",email)
             if not match :
                 raise ValueError("The email is invalid")
             else :
                 self.email = email
+        else :
+            self.email = None
 

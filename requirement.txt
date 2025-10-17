@@ -1,1 +1,6 @@
-ECHO is on.
+re
+uuid
+sqlite3
+logging
+bcrypt
+argparse

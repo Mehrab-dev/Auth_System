@@ -1,0 +1,5 @@
+ 2025-10-18 02:04:23,807 - logger_config - ERROR -  error connecting to database : 'User' object has no attribute 'email'
+ 2025-10-18 02:13:12,660 - logger_config - ERROR -  error connecting to database : 'User' object has no attribute 'email' 
+ 2025-10-18 02:16:34,846 - logger_config - INFO - User added successfully 
+ 2025-10-18 02:19:50,489 - logger_config - INFO - User added successfully 
+ 2025-10-18 02:45:20,704 - logger_config - INFO - User added successfully 
