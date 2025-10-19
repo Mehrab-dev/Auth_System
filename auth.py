@@ -23,3 +23,24 @@ class AuthUser :
             logger.info("User added successfully")
         except Exception as e :
             logger.error(f' error connecting to database : {e}')
+
+    def Delete_User(self,phone) :
+        try :
+            with sqlite3.connect(self.path_db) as conn :
+                cur = conn.cursor()
+                exists = cur.execute(""" SELECT phone FROM users WHERE phone = ? """,(phone,))
+                data = exists.fetchall()
+                if not data :
+                    logger.info("No user found with this mobile number")
+                    return False
+                cur.execute(""" DELETE FROM users WHERE phone = ? """,(phone,))
+                conn.commit()
+                if cur.rowcount > 0 :
+                    logger.info("User deleted successfully")
+                    return True
+                else :
+                    logger.info("User not deleted - not found")
+                    return False
+        except Exception as e :
+            logger.error(f"error connecting to database : {e}")
+            return False
