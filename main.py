@@ -22,7 +22,7 @@ if args.command == 'add' :
     pd = AuthUser(path_db=args.p)
     user = User(name=args.name,lastname=args.lastname,phone=args.phone,password=args.password,email=args.email)
     pd.Add_User(user)
-if args.command == "del"
+if args.command == "del" :
     path_db = AuthUser(path_db=args.p)
     path_db.Delete_User(phone=args.phone)
 

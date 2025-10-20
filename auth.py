@@ -1,4 +1,8 @@
+import re
 import uuid
+
+import bcrypt
+
 from models import User
 import sqlite3
 import datetime
@@ -44,3 +48,34 @@ class AuthUser :
         except Exception as e :
             logger.error(f"error connecting to database : {e}")
             return False
+
+    def Update_User(self,phone:str,name:str=None,lastname:str=None,password:str=None,email:str=None) :
+        with sqlite3.connect(self.path_db) as conn :
+            cur = conn.cursor()
+            old_data = cur.execute(""" SELECT name,lastname,phone,email,password FROM users WHERE phone = ? """,(phone,))
+            fetch_data = old_data.fetchall()
+            for i in fetch_data :
+                old_name,old_lastname,old_email,old_password = i
+            if name is not None :
+                new_name = name
+            else :
+                new_name = old_name
+            if lastname is not None :
+                new_lastname = lastname
+            else :
+                new_lastname = old_lastname
+            match = re.fullmatch(r"\d[a-zA-Z0-9_.]+@gmail\.com$",(email,))
+            if email is not None :
+                if match :
+                    new_email = email
+                else :
+                    logger.error("email is invalid")
+            else :
+                new_email = old_email
+            if password is not None :
+                bcrypt.hashpw(password.encode(),bcrypt.gensalt())
+            else :
+                new_password = old_password
+
+
+
