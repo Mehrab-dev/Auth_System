@@ -16,6 +16,12 @@ delete_user = sub_parser.add_parser("del",help="To delete a user from database")
 delete_user.add_argument("--p",required=True,help="Database path")
 delete_user.add_argument("--phone",required=True,help="User mobile number to delete")
 
+update_user = sub_parser.add_parser("update",help="to update user information")
+update_user.add_argument("--p",required=True,help="Database address")
+update_user.add_argument("--phone",required=True,help="Key to search for user",type=str)
+update_user.add_argument("--name",required=False,help="name to rename")
+update_user.add_argument("--lastname",required=False,help="lastname to change")
+
 args = parser.parse_args()
 
 if args.command == 'add' :

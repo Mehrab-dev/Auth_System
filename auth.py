@@ -69,12 +69,13 @@ class AuthUser :
                     new_lastname = lastname
                 else :
                     new_lastname = old_lastname
-                match = re.fullmatch(r"[a-zA-Z0-9_.]+@gmail\.com$",email)
                 if email is not None :
+                    match = re.fullmatch(r"[a-zA-Z0-9_.]+@gmail\.com$", email)
                     if match :
                         new_email = email
                     else :
                         logger.error("email is invalid")
+                        new_email = old_email
                 else :
                     new_email = old_email
                 if password is not None :
