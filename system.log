@@ -16,3 +16,7 @@
  2025-10-22 19:15:13,555 - logger_config - INFO - User added successfully 
  2025-10-22 19:17:32,843 - logger_config - INFO - User added successfully 
  2025-10-22 19:17:32,860 - logger_config - INFO - User information updated 
+ 2025-10-23 01:33:46,664 - logger_config - INFO - User added successfully 
+ 2025-10-23 01:36:02,275 - logger_config - INFO - User added successfully 
+ 2025-10-23 01:42:49,156 - logger_config - ERROR - no users are registered in the database ! 
+ 2025-10-23 01:43:55,567 - logger_config - INFO - User information updated 

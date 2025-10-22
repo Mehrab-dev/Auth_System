@@ -10,7 +10,7 @@ add_user.add_argument('name',help='name for user')
 add_user.add_argument('lastname',help='lastname for user')
 add_user.add_argument('phone',help='phone for user')
 add_user.add_argument('password',help='password for user (at least 8 digits for greater security)')
-add_user.add_argument('--email',required=True,help='email for user')
+add_user.add_argument('--email',required=False,help='email for user')
 
 delete_user = sub_parser.add_parser("del",help="To delete a user from database")
 delete_user.add_argument("--p",required=True,help="Database path")
@@ -21,7 +21,8 @@ update_user.add_argument("--p",required=True,help="Database address")
 update_user.add_argument("--phone",required=True,help="Key to search for user",type=str)
 update_user.add_argument("--name",required=False,help="name to rename")
 update_user.add_argument("--lastname",required=False,help="lastname to change")
-
+update_user.add_argument("--email",required=False,help="email to change")
+update_user.add_argument("--pas",required=False,help="password to change")
 args = parser.parse_args()
 
 if args.command == 'add' :
@@ -31,4 +32,7 @@ if args.command == 'add' :
 if args.command == "del" :
     path_db = AuthUser(path_db=args.p)
     path_db.Delete_User(phone=args.phone)
+if args.command == "update" :
+    pd = AuthUser(path_db=args.p)
+    pd.Update_User(phone=args.phone,name=args.name,lastname=args.lastname,email=args.email,password=args.pas)
 
