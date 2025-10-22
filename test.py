@@ -1,5 +1,4 @@
 import sqlite3
-from xml.dom.minidom import CDATASection
 
 import auth
 from models import User
@@ -25,3 +24,11 @@ def test_delete_user(tmp_path) :
     pdb.Add_User(user)
     del_user = pdb.Delete_User(phone='09158435540')
     assert del_user  == True
+
+def test_update_user(tmp_path) :
+    fake_path = tmp_path / "data.sqlite3"
+    user = User("Alex","Teles","09308342034","12341234")
+    pdb = AuthUser(fake_path)
+    pdb.Add_User(user)
+    u_user = pdb.Update_User("09308342034","Dani")
+    assert u_user == True

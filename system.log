@@ -8,3 +8,7 @@
  2025-10-19 23:06:04,426 - logger_config - INFO - User added successfully 
  2025-10-19 23:06:04,443 - logger_config - INFO - User deleted successfully 
  2025-10-19 23:27:07,681 - logger_config - INFO - User deleted successfully 
+ 2025-10-22 10:39:42,282 - logger_config - INFO - User added successfully 
+ 2025-10-22 10:39:42,283 - logger_config - ERROR - no users are registered in the database ! 
+ 2025-10-22 10:40:41,200 - logger_config - INFO - User added successfully 
+ 2025-10-22 10:41:36,616 - logger_config - INFO - User added successfully 
