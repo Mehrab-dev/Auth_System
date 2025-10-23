@@ -17,7 +17,7 @@ class AuthUser :
 
     def Add_User(self,user:User) :
         user_id = str(uuid.uuid4())
-        time = datetime.datetime.today()
+        time = datetime.datetime.today().strftime("%y-%m-%d  %H:%M:%S")
         try :
             with sqlite3.connect(self.path_db) as conn :
                 cur = conn.cursor()
@@ -92,6 +92,29 @@ class AuthUser :
                 logger.error(f"error connection to database : {e}")
                 raise ValueError("error connection to database")
 
+    def login_user(self,phone:str,password:str) :
+        time = datetime.datetime.now().strftime("%y-%m-%d  %H:%M:%S")
+        try :
+            with sqlite3.connect(self.path_db) as conn :
+                cur = conn.cursor()
+                exists = cur.execute(""" SELECT password FROM users WHERE phone = ? """, (phone,))
+                data = exists.fetchall()
+                if not data :
+                    logger.error("no user has been registered with this mobile number")
+                    return False
+                for i in data :
+                    old_password = i[0]
+                if bcrypt.checkpw(password.encode(),str(old_password).encode()) :
+                    cur.execute(""" UPDATE users SET last_visit = ? WHERE phone = ? """,(time,phone))
+                    conn.commit()
+                    logger.info("your login has been confirmed")
+                    return  True
+                else :
+                    logger.warning("password is invalid")
+                    return False
+        except Exception as e :
+            logger.error(f"error connection to database! : {e} ")
+            return False
 
 
 

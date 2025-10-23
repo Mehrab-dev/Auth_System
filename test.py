@@ -32,3 +32,11 @@ def test_update_user(tmp_path) :
     pdb.Add_User(user)
     u_user = pdb.Update_User("09308342034","Dani")
     assert u_user == True
+
+def test_login_user(tmp_path) :
+    fake_path = tmp_path / "data.sqlite3"
+    pdb = AuthUser(path_db=fake_path)
+    user = User("Hadi","Mohammadi","09158494050","12345678")
+    pdb.Add_User(user)
+    login_user = pdb.login_user("09158494050","12345678")
+    assert login_user == True

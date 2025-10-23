@@ -11,7 +11,7 @@ class User :
             raise ValueError("The phone number is invalid")
         else :
             self.phone = phone
-        self.password = bcrypt.hashpw(password.encode(),bcrypt.gensalt())
+        self.password = bcrypt.hashpw(password.encode(),bcrypt.gensalt()).decode()
         if email is not None :
             match = re.fullmatch(r"^[a-zA-Z0-9._]+@gmail\.com$",email)
             if not match :

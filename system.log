@@ -20,3 +20,21 @@
  2025-10-23 01:36:02,275 - logger_config - INFO - User added successfully 
  2025-10-23 01:42:49,156 - logger_config - ERROR - no users are registered in the database ! 
  2025-10-23 01:43:55,567 - logger_config - INFO - User information updated 
+ 2025-10-23 03:41:17,470 - logger_config - INFO - User added successfully 
+ 2025-10-23 03:41:17,472 - logger_config - ERROR - error connection to database! : 'bytes' object has no attribute 'encode'  
+ 2025-10-23 03:43:57,913 - logger_config - INFO - User added successfully 
+ 2025-10-23 03:43:57,915 - logger_config - ERROR - error connection to database! : Invalid salt  
+ 2025-10-23 03:47:28,920 - logger_config - INFO - User added successfully 
+ 2025-10-23 03:47:29,178 - logger_config - INFO - your login has been confirmed 
+ 2025-10-23 04:09:37,221 - logger_config - ERROR - error connection to database! : Invalid salt  
+ 2025-10-23 04:09:55,791 - logger_config - ERROR - error connection to database! : Invalid salt  
+ 2025-10-23 04:11:35,653 - logger_config - INFO - User added successfully 
+ 2025-10-23 04:13:14,987 - logger_config - ERROR - no user has been registered with this mobile number 
+ 2025-10-23 04:14:41,930 - logger_config - INFO - your login has been confirmed 
+ 2025-10-23 04:17:34,207 - logger_config - INFO - your login has been confirmed 
+ 2025-10-23 04:18:09,387 - logger_config - ERROR - error connection to database! : Invalid salt  
+ 2025-10-23 04:18:58,975 - logger_config - ERROR - error connection to database! : Invalid salt  
+ 2025-10-23 04:19:06,776 - logger_config - ERROR - error connection to database! : Invalid salt  
+ 2025-10-23 04:19:14,884 - logger_config - ERROR - error connection to database! : Invalid salt  
+ 2025-10-23 04:20:23,615 - logger_config - INFO - User deleted successfully 
+ 2025-10-23 04:21:55,632 - logger_config - INFO - User information updated 

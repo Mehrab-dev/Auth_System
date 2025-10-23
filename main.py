@@ -23,6 +23,12 @@ update_user.add_argument("--name",required=False,help="name to rename")
 update_user.add_argument("--lastname",required=False,help="lastname to change")
 update_user.add_argument("--email",required=False,help="email to change")
 update_user.add_argument("--pas",required=False,help="password to change")
+
+login_user = sub_parser.add_parser("login")
+login_user.add_argument("--p",required=True,help="Database address")
+login_user.add_argument("--phone",required=True)
+login_user.add_argument("--pas",required=True)
+
 args = parser.parse_args()
 
 if args.command == 'add' :
@@ -35,4 +41,6 @@ if args.command == "del" :
 if args.command == "update" :
     pd = AuthUser(path_db=args.p)
     pd.Update_User(phone=args.phone,name=args.name,lastname=args.lastname,email=args.email,password=args.pas)
-
+if args.command == "login" :
+    pd = AuthUser(path_db=args.p)
+    print(pd.login_user(phone=args.phone,password=args.pas))
