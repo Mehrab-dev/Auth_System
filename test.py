@@ -1,5 +1,4 @@
 import sqlite3
-
 import auth
 from models import User
 from auth import AuthUser
